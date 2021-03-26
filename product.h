@@ -18,7 +18,7 @@ typedef struct{
 * This is a type defined structure
 * making a user account.
 */
-typdef struct{
+typedef struct{
     char id[20];
     char pw[20];
     int wallet;
@@ -79,7 +79,7 @@ void logout(User *u);
 /*
 * This function allows user to deposit money to wallet.
 */
-void deposit(Userr *u);
+void deposit(User *u);
 
 /*
 * This function displays given menu,
