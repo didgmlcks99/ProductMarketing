@@ -7,11 +7,11 @@
 * making a Product.
 */
 typedef struct{
-    char name[20];
-    float weight;
-    int price;
-    int rate[1000];
-    int numRate;
+    char name[20];    // name of the product in integer
+    float weight;     // weight of the product in float
+    int price;        // price of product in integer
+    int rate[1000];   // rating of product in integer limit to 1~5
+    int numRate;      // number of rating of product in integer
 } Product;
 
 /*
@@ -142,7 +142,7 @@ void rateProduct(Product *p);
 * This function uploads the data to database allowing reusable data.
 * handling : upload if data exist / none if no data
 */
-void uploadProductData(Product *p, int pIndex);
+void uploadProductData(Product *p, int index);
 
 /*
 * This function gets user input for certain data to be
@@ -165,8 +165,35 @@ void listProduct(Product *p, int index);
 
 /*
 * This function allow the users to search for a product
-* with user chosen type from product, (name, weight, price, etc.),
-* which then are printed when matching.
+* by name, which then are printed when matching.
 * handling : print if found / none if search not found
 */
-void searchProduct(Product *p, int index);
+void searchbyName(Product *p, int index);
+
+/*
+* This function allow the users to search for a product
+* by weight, which then are printed when matching.
+* handling : print if found / none if search not found
+*/
+void searchbyWeight(Product *p, int index);
+
+/*
+* This function allow the users to search for a product
+* by price, which then are printed when matching.
+* handling : print if found / none if search not found
+*/
+void searchbyPrice(Product *p, int index);
+
+/*
+* This function allow the users to search for a product
+* by rate, which then are printed when matching.
+* handling : print if found / none if search not found
+*/
+void searchbyRate(Product *p, int index);
+
+/*
+* This function allow the users to search for a product
+* by number of rates, which then are printed when matching.
+* handling : print if found / none if search not found
+*/
+void searchbyNumRate(Product *p, int index);
