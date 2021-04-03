@@ -145,7 +145,7 @@ void rateProduct(Product *p);
 * This function uploads the data to database allowing reusable data.
 * handling : upload if data exist / none if no data
 */
-void uploadProductData(Product *p, int index);
+void uploadProductData(Product *p/*, int index*/);
 
 /*
 * This function gets user input for certain data to be

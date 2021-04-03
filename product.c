@@ -75,12 +75,12 @@ int deleteProduct(Product *p){
 	return 1;
 }
 
-void uploadProductData(Product *p, int index){
+void uploadProductData(Product *p/*, int index*/){
 	FILE *fp;
 	fp = fopen("productData.txt", "wt");
-	for(int i = 0; i < index; i++){
+	// for(int i = 0; i < index; i++){
 		fprintf(fp, "%.2f %d %d %d %s\n", p->weight, p->price, p->rate, p->numRate, p->name);
-	}
+	// }
 
 	fclose(fp);
 	printf("==> 제품  저장됨!\n");
@@ -101,7 +101,7 @@ int bringProductData(Product *p){
 		fscanf(fp, "%d", &p->price);
 		fscanf(fp, "%d", &p->rate);
 		fscanf(fp, "%d", &p->numRate);
-		fscanf(fp, "%[^\n]s", p->name);
+		fscanf(fp, "%[^\n]s ", p->name);
 
 		count++;
 	//}
