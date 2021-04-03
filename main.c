@@ -6,7 +6,8 @@ int main(){
 	Product p;
 
 	int menu;
-	int count = 0;
+	int count = bringProductData(&p);
+	//int index = count;
 
 	while(1){
 		menu = selectMenu();
@@ -19,6 +20,8 @@ int main(){
 			updateProduct(&p);
 		}else if(menu == 4){
 			count -= deleteProduct(&p);
+		}else if(menu == 5){
+			uploadProductData(&p, count);
 		}
 	}
 	return 0;
