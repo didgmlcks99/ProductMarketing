@@ -1,3 +1,6 @@
+//product.h
+#include <stdio.h>
+
 /*
 * This is a header file of a program that allows users to use the platform of market.
 */
@@ -7,10 +10,10 @@
 * making a Product.
 */
 typedef struct{
-    char name[20];    // name of the product in integer
+    char name[40];    // name of the product in integer
     float weight;     // weight of the product in float
     int price;        // price of product in integer
-    int rate[1000];   // rating of product in integer limit to 1~5
+    int rate;   // rating of product in integer limit to 1~5
     int numRate;      // number of rating of product in integer
 } Product;
 
