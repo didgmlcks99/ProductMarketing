@@ -25,7 +25,7 @@ int createProduct(Product *p){
 	while((c = getchar()) != '\n' && c != EOF);
 
 	printf("제품의 이름 : ");
-	scanf("%[^\n]%*c", p->name);
+	scanf("%[^\n]s", p->name);
 
 	printf("제품의 무개 : ");
 	scanf("%f", &p->weight);
@@ -96,7 +96,7 @@ int bringProductData(Product *p){
 	}
 
 	//while(1){
-		fscanf(fp, "%f", &p->weight);
+		fscanf(fp, "%f ", &p->weight);
 		//if(feof(fp)) break;
 		fscanf(fp, "%d", &p->price);
 		fscanf(fp, "%d", &p->rate);
