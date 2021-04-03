@@ -13,7 +13,8 @@ typedef struct{
     char name[40];    // name of the product in integer
     float weight;     // weight of the product in float
     int price;        // price of product in integer
-    int rate;   // rating of product in integer limit to 1~5
+    float rate;   // rating of product in integer limit to 1~5
+    int totalRate;
     int numRate;      // number of rating of product in integer
 } Product;
 
@@ -139,7 +140,7 @@ void buyProduct(Product *p, User *u);
 * chosen from listed product (number of rate incremented).
 * handling : limit rating to integer between 1 and 5 / stop if not
 */
-void rateProduct(Product *p);
+int rateProduct(Product *p);
 
 /*
 * This function uploads the data to database allowing reusable data.

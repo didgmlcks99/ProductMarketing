@@ -6,12 +6,12 @@ int selectMenu(){
 	int menu;
 
 	printf("\n***** Product Market *****\n");
-	printf("1. 메뉴조회\n");
-	printf("2. 메뉴추가\n");
-	printf("3. 메뉴수정\n");
-	printf("4. 메뉴삭제\n");
-	printf("5. 메뉴저장\n");
-	printf("6. 메뉴검색\n");
+	printf("1. 제품 조회\n");
+	printf("2. 제품 추가\n");
+	printf("3. 제품 수정\n");
+	printf("4. 제품 삭제\n");
+	printf("5. 제품 평가\n");
+	printf("6. 제품 저장\n");
 	printf("0. 종료\n\n");
 	printf("==> 원하는 메뉴는? ");
 
@@ -33,7 +33,8 @@ int createProduct(Product *p){
 	printf("제품의 가격 : ");
 	scanf("%d", &p->price);
 
-	p->rate = 0;
+	p->rate = 0.0;
+	p->totalRate = 0;
 	p->numRate = 0;
 
 	printf("==> 제품 추가됨!\n");
@@ -42,7 +43,7 @@ int createProduct(Product *p){
 }
 
 void printProduct(Product p){
-	printf("\n%.2f\t%d\t%d\t%d\t%s\n", p.weight, p.price, p.rate, p.numRate, p.name);
+	printf("\n%.2f\t%d\t%.2f\t%d\t%s\n", p.weight, p.price, p.rate, p.numRate, p.name);
 }
 
 int updateProduct(Product *p){
@@ -67,10 +68,26 @@ int deleteProduct(Product *p){
 	p->name[0] = '\0';
 	p->weight = -1.0;
 	p->price = -1;
-	p->rate = 0;
-	p->numRate = 0;
+	p->rate = -0.0;
+	p->totalRate = -1;
+	p->numRate = -1;
 
 	printf("==> 제품 삭제됨!\n");
+
+	return 1;
+}
+
+int rateProduct(Product *p){
+	int rate;
+
+	printf("별 1~5 고르시오 : ");
+	scanf("%d", &rate);
+	
+	p->totalRate += rate;
+	p->numRate++;
+	p->rate = (float)(p->totalRate) / p->numRate;
+
+	printf("==> 제품 평강 완료!\n");
 
 	return 1;
 }
@@ -79,7 +96,7 @@ void uploadProductData(Product *p/*, int index*/){
 	FILE *fp;
 	fp = fopen("productData.txt", "wt");
 	// for(int i = 0; i < index; i++){
-		fprintf(fp, "%.2f %d %d %d %s\n", p->weight, p->price, p->rate, p->numRate, p->name);
+		fprintf(fp, "%.2f %d %.2f %d %s\n", p->weight, p->price, p->rate, p->numRate, p->name);
 	// }
 
 	fclose(fp);
@@ -99,7 +116,7 @@ int bringProductData(Product *p){
 		fscanf(fp, "%f ", &p->weight);
 		//if(feof(fp)) break;
 		fscanf(fp, "%d", &p->price);
-		fscanf(fp, "%d", &p->rate);
+		fscanf(fp, "%f", &p->rate);
 		fscanf(fp, "%d", &p->numRate);
 		fscanf(fp, "%[^\n]s ", p->name);
 

@@ -21,7 +21,9 @@ int main(){
 		}else if(menu == 4){
 			count -= deleteProduct(&p);
 		}else if(menu == 5){
-			uploadProductData(&p);
+			rateProduct(&p);
+		}else if(menu == 6){
+			uploadProductData(&p/*, count*/);
 		}
 	}
 	return 0;
