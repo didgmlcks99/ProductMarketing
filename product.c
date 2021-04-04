@@ -79,10 +79,14 @@ int deleteProduct(Product *p){
 
 int rateProduct(Product *p){
 	int rate;
-
-	printf("별 1~5 고르시오 : ");
-	scanf("%d", &rate);
 	
+	while(1){
+		printf("별 1~5 고르시오 : ");
+		scanf("%d", &rate);
+
+		if(rate > 0.0 && rate <= 5.0) break;
+	}
+
 	p->totalRate += rate;
 	p->numRate++;
 	p->rate = (float)(p->totalRate) / p->numRate;
