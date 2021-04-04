@@ -85,6 +85,8 @@ int rateProduct(Product *p){
 		scanf("%d", &rate);
 
 		if(rate > 0.0 && rate <= 5.0) break;
+		
+		printf("평가 숫자 1~5 사이로 고르시오!\n");
 	}
 
 	p->totalRate += rate;
