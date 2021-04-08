@@ -10,80 +10,13 @@
 * making a Product.
 */
 typedef struct{
-    char name[40];    // name of the product in integer
-    float weight;     // weight of the product in float
-    int price;        // price of product in integer
-    float rate;   // rating of product in integer limit to 1~5
-    int totalRate;
-    int numRate;      // number of rating of product in integer
+    char name[40];	// name of the product in integer
+    float weight;	// weight of the product in float
+    int price;		// price of product in integer
+    float rate;		// rating of product in integer limit to 1~5
+    int totalRate ;	//for calculation average to number of ratings
+    int numRate;	// number of rating of product in integer
 } Product;
-
-/*
-* This is a type defined structure
-* making a user account.
-*/
-typedef struct{
-    char id[20];
-    char pw[20];
-    int wallet;
-} User;
-
-/*
-* This function reads the user account datas saved in the database 
-* bringing it to user usable memory. 
-* return : integer that indicates the amount of user in database (index).
-* handling : bring data if database exist / none if database doesn't exist
-*/
-int bringUserData(User *u);
-
-/*
-* This function allow users to create a account for this program.
-* return : integer that increments a local variable indicating
-*           the last index of a list of users.
-*           1 : successful creation / 0 : failed creation
-* handling : create if memory not full / none if memory is full
-*/
-int createUser(User *u);
-
-/*
-* This function uploads the data to database allowing reusable data.
-* handling : upload if data exist / none if no data
-*/
-void uploadUserData(User *u, int index);
-
-/*
-* This function allow users to delete a current user account.
-* return : integer that decrements a local variable indicating
-*           the last index of a list of users.
-*           1 : successful deletion / 0 : failed deletion
-* handling : delete if data exist / none if no data
-*/
-int deleteUser(User *u);
-
-/*
-* This function allow users to update (edit) a user account data.
-* return : integer indicating whether the update was successfull or not.
-*          1 : successful update / 0 : failed update
-* handling : update if data exist / none if no data
-*/
-int updateUser(User *u);
-
-/*
-* This function logs in a user account to program through id and password
-* created and saved in database.
-* handling : decline login if not existing id | password is wrong
-*/
-void login(User *u);
-
-/*
-* This function logs out user from the program.
-*/
-void logout(User *u);
-
-/*
-* This function allows user to deposit money to wallet.
-*/
-void deposit(User *u);
 
 /*
 * This function displays given menu,
@@ -126,14 +59,6 @@ int deleteProduct(Product *p);
 * handling : update if data exist / none if no data
 */
 int updateProduct(Product *p);
-
-/*
-* This function allow user to buy a product 
-* by choosing from listed product (not available product).
-* User 'MUST' have appropiate amount of money to buy product.
-* handling : buy if data exist / none if no data
-*/
-void buyProduct(Product *p, User *u);
 
 /*
 * This function allow user to rate a product
