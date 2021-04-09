@@ -1,30 +1,90 @@
 //main.c
 
 #include "product.h"
+#include "manager.h"
 
 int main(){
-	Product p;
+#ifdef DEBUG
+	printf("==> RUNNING IN DEBUG MODE!\n");
+#endif
+	Product p[100];
+	int count = 0; /*bringProductData(&p);*/
+	int index = count;
 
 	int menu;
-	int count = bringProductData(&p);
-	//int index = count;
-
 	while(1){
 		menu = selectMenu();
+
+#ifdef DEBUG
+		printf("\n\n=============== DEBUG CHECK ===============\n");
+		printf("count : %d\n", count);
+		printf("index : %d\n", index);
+		printf("menu : %d\n", menu);
+		printf("=============== DEBUG CHECK ===============\n\n");
+#endif
 		if(menu == 0) break;
 		if(menu == 1){
-			printProduct(p);
+			if(count > 0){
+				listProduct(p, index);
+			}else{ 
+				printf("=> 조회 할 데이터 없습니다.\n");
+			}
 		}else if(menu == 2){
-			count += createProduct(&p);
+			if(count < 10){
+				count += createProduct(&p[index++]);
+			}else{
+				printf("=> 10개 제품으로 제한 되어서 추가 불가합니다.\n");
+			}
 		}else if(menu == 3){
-			updateProduct(&p);
+			if(count > 0){
+				int no = selectProductNo(p, index);
+				if(no > index){
+					printf("=> 선택된 번호의 제품 존재 하지 않습니다.\n");
+				}else if(no > 0){
+					updateProduct(&p[no-1]);
+				}else{
+					printf("=> 취소 되었습니다\n");
+				}
+			}else{
+				printf("=> 수정 할 데이터 없습니다.\n");
+			}
 		}else if(menu == 4){
-			count -= deleteProduct(&p);
+			if(count > 0){
+				int no = selectProductNo(p, index);
+				if(no > index){
+					printf("=> 선택된 번호의 제품 존재 하지 않습니다\n");
+				}else if(no > 0){
+					int delok;
+					printf("정말로 삭제하시겠습니까?(1:삭제) ");
+					scanf("%d", &delok);
+					if(delok == 1){
+						deleteProduct(&p[no-1]);
+						count--;
+					}else{
+						printf("=> 삭제 취소 되었습니다.\n");
+					}
+				}else{
+					printf("=> 취소 되었습니다\n");
+				}
+			}else{
+				printf("삭제할 데이터가 없습니다.\n");
+			}
 		}else if(menu == 5){
-			rateProduct(&p);
-		}else if(menu == 6){
-			uploadProductData(&p/*, count*/);
-		}
+			if(count > 0){
+				int no = selectProductNo(p, index);
+				if(no > index){
+					printf("=> 선택된 번호의 제품 존재 하지 않습니다.\n");
+				}else if(no > 0){
+					rateProduct(&p[no-1]);
+				}else{
+					printf("=> 취소 되었습니다\n");
+				}
+			}else{
+				printf("=> 평가 할 데이터 없습니다.\n");
+			}
+		}/*else if(menu == 6){
+			uploadProductData(&p, count);
+		}*/
 	}
 	return 0;
 }

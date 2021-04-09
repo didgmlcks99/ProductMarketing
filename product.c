@@ -11,7 +11,7 @@ int selectMenu(){
 	printf("3. 제품 수정\n");
 	printf("4. 제품 삭제\n");
 	printf("5. 제품 평가\n");
-	printf("6. 제품 저장\n");
+	/*printf("6. 제품 저장\n");*/
 	printf("0. 종료\n\n");
 	printf("==> 원하는 메뉴는? ");
 
@@ -27,10 +27,10 @@ int createProduct(Product *p){
 	printf("제품의 이름 : ");
 	scanf("%[^\n]s", p->name);
 
-	printf("제품의 무개 : ");
+	printf("제품의 무개(g) : ");
 	scanf("%f", &p->weight);
 
-	printf("제품의 가격 : ");
+	printf("제품의 가격(w) : ");
 	scanf("%d", &p->price);
 
 	p->rate = 0.0;
@@ -43,7 +43,7 @@ int createProduct(Product *p){
 }
 
 void printProduct(Product p){
-	printf("\n%.2f\t%d\t%.2f\t%d\t%s\n", p.weight, p.price, p.rate, p.numRate, p.name);
+	printf("%6.1f %9d %10.1f %11d %15s\n", p.weight, p.price, p.rate, p.numRate, p.name);
 }
 
 int updateProduct(Product *p){
@@ -96,41 +96,4 @@ int rateProduct(Product *p){
 	printf("==> 제품 평강 완료!\n");
 
 	return 1;
-}
-
-void uploadProductData(Product *p/*, int index*/){
-	FILE *fp;
-	fp = fopen("productData.txt", "wt");
-	// for(int i = 0; i < index; i++){
-		fprintf(fp, "%.2f %d %.2f %d %s\n", p->weight, p->price, p->rate, p->numRate, p->name);
-	// }
-
-	fclose(fp);
-	printf("==> 제품  저장됨!\n");
-}
-
-int bringProductData(Product *p){
-	int count = 0;
-	FILE *fp;
-	fp = fopen("productData.txt", "rt");
-	if(fp == NULL){
-		printf("==> 파일 없음!\n");
-		return 0;
-	}
-
-	//while(1){
-		fscanf(fp, "%f ", &p->weight);
-		//if(feof(fp)) break;
-		fscanf(fp, "%d", &p->price);
-		fscanf(fp, "%f", &p->rate);
-		fscanf(fp, "%d", &p->numRate);
-		fscanf(fp, "%[^\n]s ", p->name);
-
-		count++;
-	//}
-
-	fclose(fp);
-	printf("==> 로딩 성공!\n");
-
-	return count;
 }

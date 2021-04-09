@@ -1,4 +1,8 @@
 //product.h
+
+#ifndef _PRODUCT_H
+#define _PRODUCT_H
+
 #include <stdio.h>
 
 /*
@@ -25,14 +29,6 @@ typedef struct{
 * handling : run program if existing menu / none if non-existing menu
 */
 int selectMenu();
-
-/*
-* This function reads the product datas saved in the database 
-* bringing it to user usable memory. 
-* return : integer that indicates the amount of product in database (index).
-* handling : bring data if database exist / none if database doesn't exist
-*/
-int bringProductData(Product *p);
 
 /*
 * This function allow users to create a product
@@ -68,61 +64,9 @@ int updateProduct(Product *p);
 int rateProduct(Product *p);
 
 /*
-* This function uploads the data to database allowing reusable data.
-* handling : upload if data exist / none if no data
-*/
-void uploadProductData(Product *p/*, int index*/);
-
-/*
-* This function gets user input for certain data to be
-* implemented according to input index number.
-* return : integer indicating the index number of data chosen by user.
-*/
-int selectProductNo(Product *p, int index);
-
-/*
 * This function prints a product.
 * handling : printf if data exist / none if no data
 */
 void printProduct(Product p);
 
-/*
-* This function list products stored in the database.
-* handling : list if data exist / none if no data
-*/
-void listProduct(Product *p, int index);
-
-/*
-* This function allow the users to search for a product
-* by name, which then are printed when matching.
-* handling : print if found / none if search not found
-*/
-void searchbyName(Product *p, int index);
-
-/*
-* This function allow the users to search for a product
-* by weight, which then are printed when matching.
-* handling : print if found / none if search not found
-*/
-void searchbyWeight(Product *p, int index);
-
-/*
-* This function allow the users to search for a product
-* by price, which then are printed when matching.
-* handling : print if found / none if search not found
-*/
-void searchbyPrice(Product *p, int index);
-
-/*
-* This function allow the users to search for a product
-* by rate, which then are printed when matching.
-* handling : print if found / none if search not found
-*/
-void searchbyRate(Product *p, int index);
-
-/*
-* This function allow the users to search for a product
-* by number of rates, which then are printed when matching.
-* handling : print if found / none if search not found
-*/
-void searchbyNumRate(Product *p, int index);
+#endif
