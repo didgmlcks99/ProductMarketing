@@ -93,7 +93,7 @@ int rateProduct(Product *p){
 	p->numRate++;
 	p->rate = (float)(p->totalRate) / p->numRate;
 
-	printf("==> 제품 평강 완료!\n");
+	printf("==> 제품 평가 완료!\n");
 
 	return 1;
 }
