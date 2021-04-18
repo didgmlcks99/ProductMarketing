@@ -83,5 +83,26 @@ void searchbyName(Product *p, int index){
 			scnt++;
 		}   
 	}
-	if(scnt == 0) printf("=> 검색된 데이터 없음!\n");
+	if(scnt == 0) printf("=> 검색된 데이터 없음.\n");
+}
+
+void searchbyLowerPrice(Product *p, int index){
+	int scnt = 0;
+	int boundPrice;;
+
+	printf("(해당 가격보다 저렴한 제품 검색)\n");
+	printf("검색할 제품 가격 : ");
+	scanf("%d", &boundPrice);
+
+	printf("********************************************\n");
+
+	for(int i = 0; i < index; i++){
+		if(p[i].price < 0) continue;
+		if(p[i].price <= boundPrice){
+			printf("%d    ", i+1);
+			printProduct(p[i]);
+			scnt++;
+		}   
+	}
+	if(scnt == 0) printf("=> 해당 가격보다 저렴한 제품 없음\n");
 }

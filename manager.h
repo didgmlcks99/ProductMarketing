@@ -35,3 +35,10 @@ void uploadProductData(Product *p, int index);
 * handling : print if found / none if search not found
 */
 void searchbyName(Product *p, int index);
+
+/* This function allow the users to search for a product
+ * cheaper than chosen price. When a product is cheaper than
+ * the chosen price, it will be printed.
+ * handling : print if cheaper product exist / none if none exist
+*/
+void searchbyLowerPrice(Product *p, int index);

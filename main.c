@@ -94,6 +94,12 @@ int main(){
 			}else{
 				printf("=> 제품 이름으로 검색할 데이터 없습니다.\n");
 			}
+		}else if(menu == 8){
+			if(count > 0){
+				searchbyLowerPrice(p, index);
+			}else{
+				printf("=> 제품 가격으로 검색할 데이터 없습니다.\n");
+			}
 		}
 	}
 	return 0;
