@@ -104,7 +104,7 @@ int main(){
 			if(count > 0){
 				searchbyHigherRate(p, index);
 			}else{
-				printf("=> 제품 평가로 검색할 데이터 없습니다.\n");
+				printf("=> 제품 별점으로  검색할 데이터 없습니다.\n");
 			}
 		}
 	}

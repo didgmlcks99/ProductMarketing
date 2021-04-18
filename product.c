@@ -14,7 +14,7 @@ int selectMenu(){
 	printf("6. 제품 저장\n");
 	printf("7. 제품 이름으로 검색\n");
 	printf("8. 해당 가격보다 저렴한 제품 검색\n");
-	printf("9. 해당 평가보다 높거나 같은 제품 검색\n");
+	printf("9. 해당 별점보다 높거나 같은 제품 검색\n");
 	printf("0. 종료\n\n");
 	printf("==> 원하는 메뉴는? ");
 
@@ -84,10 +84,10 @@ int rateProduct(Product *p){
 	float rate;
 	
 	while(1){
-		printf("별 1~5 고르시오 : ");
+		printf("별점 1.0~5.0 고르시오 : ");
 		scanf("%f", &rate);
 
-		if(rate > 0.0 && rate <= 5.0) break;
+		if(rate >= 1.0 && rate <= 5.0) break;
 
 		printf("평가 숫자 1~5 사이로 고르시오!\n");
 	}

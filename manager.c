@@ -111,8 +111,8 @@ void searchbyHigherRate(Product *p, int index){
 	int scnt = 0;
 	float boundRate;
 
-	printf("(해당 평가보다 높거나 같은  제품 검색)\n");
-	printf("검색할 제품 평가 : ");
+	printf("(해당 별점보다 높거나 같은  제품 검색)\n");
+	printf("검색할 제품 별점 : ");
 	scanf("%f", &boundRate);
 
 	printf("****************************************************************\n");
@@ -125,5 +125,5 @@ void searchbyHigherRate(Product *p, int index){
 			scnt++;
 		}   
 	}
-	if(scnt == 0) printf("=> 해당 평가보다 높은 제품 없음\n");
+	if(scnt == 0) printf("=> 해당 별점보다 높거나 같은 제품 없음\n");
 }
