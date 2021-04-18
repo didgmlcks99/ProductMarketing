@@ -8,7 +8,7 @@ int main(){
 	printf("==> RUNNING IN DEBUG MODE!\n");
 #endif
 	Product p[100];
-	int count = 0; /*bringProductData(&p);*/
+	int count = bringProductData(&p);
 	int index = count;
 
 	int menu;
@@ -82,9 +82,9 @@ int main(){
 			}else{
 				printf("=> 평가 할 데이터 없습니다.\n");
 			}
-		}/*else if(menu == 6){
+		}else if(menu == 6){
 			uploadProductData(&p, count);
-		}*/
+		}
 	}
 	return 0;
 }
