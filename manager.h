@@ -42,3 +42,10 @@ void searchbyName(Product *p, int index);
  * handling : print if cheaper product exist / none if none exist
 */
 void searchbyLowerPrice(Product *p, int index);
+
+/* This function allow the users to search for a product
+ * with a rate higher than the chosen rate. When a product has a 
+ * rate that is higher than the user chosen rate, it will be printed
+ * handling : printf if product with higher rate exist / none if none exist
+*/
+void searchbyHigherRate(Product *p, int index);

@@ -88,7 +88,7 @@ void searchbyName(Product *p, int index){
 
 void searchbyLowerPrice(Product *p, int index){
 	int scnt = 0;
-	int boundPrice;;
+	int boundPrice;
 
 	printf("(해당 가격보다 저렴한 제품 검색)\n");
 	printf("검색할 제품 가격 : ");
@@ -105,4 +105,25 @@ void searchbyLowerPrice(Product *p, int index){
 		}   
 	}
 	if(scnt == 0) printf("=> 해당 가격보다 저렴한 제품 없음\n");
+}
+
+void searchbyHigherRate(Product *p, int index){
+	int scnt = 0;
+	float boundRate;
+
+	printf("(해당 평가보다 높거나 같은  제품 검색)\n");
+	printf("검색할 제품 평가 : ");
+	scanf("%f", &boundRate);
+
+	printf("********************************************\n");
+
+	for(int i = 0; i < index; i++){
+		if(p[i].price < 0) continue;
+		if(p[i].rate >= boundRate){
+			printf("%d    ", i+1);
+			printProduct(p[i]);
+			scnt++;
+		}   
+	}
+	if(scnt == 0) printf("=> 해당 평가보다 높은 제품 없음\n");
 }
