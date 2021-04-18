@@ -73,7 +73,7 @@ void searchbyName(Product *p, int index){
 	printf("검색할 제품 이름 : ");
 	scanf("%[^\n]s", search);
 
-	printf("********************************************\n");
+	printf("****************************************************************\n");
 
 	for(int i = 0; i < index; i++){
 		if(p[i].price < 0) continue;
@@ -94,7 +94,7 @@ void searchbyLowerPrice(Product *p, int index){
 	printf("검색할 제품 가격 : ");
 	scanf("%d", &boundPrice);
 
-	printf("********************************************\n");
+	printf("****************************************************************\n");
 
 	for(int i = 0; i < index; i++){
 		if(p[i].price < 0) continue;
@@ -115,7 +115,7 @@ void searchbyHigherRate(Product *p, int index){
 	printf("검색할 제품 평가 : ");
 	scanf("%f", &boundRate);
 
-	printf("********************************************\n");
+	printf("****************************************************************\n");
 
 	for(int i = 0; i < index; i++){
 		if(p[i].price < 0) continue;
