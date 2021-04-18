@@ -28,3 +28,10 @@ int bringProductData(Product *p);
 * handling : upload if data exist / none if no data
 */
 void uploadProductData(Product *p, int index);
+
+/*
+* This function allow the users to search for a product
+* by name, which then are printed when matching.
+* handling : print if found / none if search not found
+*/
+void searchbyName(Product *p, int index);

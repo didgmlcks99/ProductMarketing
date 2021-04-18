@@ -88,6 +88,12 @@ int main(){
 			}else{
 				printf("=> 저장 할 데이터 없습니다.\n");
 			}
+		}else if(menu == 7){
+			if(count > 0){
+				searchbyName(p, index);
+			}else{
+				printf("=> 제품 이름으로 검색할 데이터 없습니다.\n");
+			}
 		}
 	}
 	return 0;

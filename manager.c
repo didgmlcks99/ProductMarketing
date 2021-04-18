@@ -1,7 +1,7 @@
 //manager.c
 
 #include "manager.h"
-
+#include <string.h>
 
 void listProduct(Product *p, int index){
 	printf("No. weight(g)  price(w)    rate(1~5)    #rates      name\n");
@@ -27,7 +27,7 @@ void uploadProductData(Product *p, int index){
         
 	for(int i = 0; i < index; i++){
 		if(p[i].price < 0) continue;
-                fprintf(fp, "%.2f %d %.2f %d %s\n", p[i].weight, p[i].price, p[i].rate, p[i].numRate, p[i].name);
+                fprintf(fp, "%.2f %d %.1f %d %s\n", p[i].weight, p[i].price, p[i].rate, p[i].numRate, p[i].name);
        	}
 
         fclose(fp);
@@ -61,4 +61,27 @@ int bringProductData(Product *p){
         printf("==> 로딩 성공!\n");
 
         return count;
+}
+
+void searchbyName(Product *p, int index){
+	int scnt = 0;
+	char search[40];
+
+	int c;
+	while((c = getchar()) != '\n' && c != EOF);
+
+	printf("검색할 제품 이름 : ");
+	scanf("%[^\n]s", search);
+
+	printf("********************************************\n");
+
+	for(int i = 0; i < index; i++){
+		if(p[i].price < 0) continue;
+		if(strstr(p[i].name, search)){
+			printf("%d    ", i+1);
+			printProduct(p[i]);
+			scnt++;
+		}   
+	}
+	if(scnt == 0) printf("=> 검색된 데이터 없음!\n");
 }
