@@ -1,5 +1,5 @@
-240.00 60000 4.0 2   apple mango
-700.00 90000 2.0 3   kiwi
-60.00 400 4.0 2  green apple
-800.00 750 3.2 4  banana
-500.00 1500 4.5 2  orange
+240.00 60000 4.0 2    apple mango
+60.00 400 4.0 2   green apple
+800.00 750 3.2 4   banana
+500.00 1500 4.5 2   orange
+650.00 4600 3.0 1 pineapple

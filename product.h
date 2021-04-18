@@ -18,7 +18,7 @@ typedef struct{
     float weight;	// weight of the product in float
     int price;		// price of product in integer
     float rate;		// rating of product in integer limit to 1~5
-    int totalRate;	// for calculation average to number of ratings
+    float totalRate;	// for calculation average to number of ratings
     int numRate;	// number of rating of product in integer
 } Product;
 

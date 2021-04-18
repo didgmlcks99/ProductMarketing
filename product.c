@@ -37,7 +37,7 @@ int createProduct(Product *p){
 	scanf("%d", &p->price);
 
 	p->rate = 0.0;
-	p->totalRate = 0;
+	p->totalRate = 0.0;
 	p->numRate = 0;
 
 	printf("==> 제품 추가됨!\n");
@@ -72,7 +72,7 @@ int deleteProduct(Product *p){
 	p->weight = -1.0;
 	p->price = -1;
 	p->rate = -0.0;
-	p->totalRate = -1;
+	p->totalRate = -1.0;
 	p->numRate = -1;
 
 	printf("==> 제품 삭제됨!\n");
@@ -81,11 +81,11 @@ int deleteProduct(Product *p){
 }
 
 int rateProduct(Product *p){
-	int rate;
+	float rate;
 	
 	while(1){
 		printf("별 1~5 고르시오 : ");
-		scanf("%d", &rate);
+		scanf("%f", &rate);
 
 		if(rate > 0.0 && rate <= 5.0) break;
 
@@ -94,7 +94,7 @@ int rateProduct(Product *p){
 
 	p->totalRate += rate;
 	p->numRate++;
-	p->rate = (float)(p->totalRate) / p->numRate;
+	p->rate = (p->totalRate) / p->numRate;
 
 	printf("==> 제품 평가 완료!\n");
 
