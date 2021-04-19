@@ -52,7 +52,7 @@ int bringProductData(Product *p){
                 fscanf(fp, "%d", &p[i].numRate);
                 fscanf(fp, "%[^\n]s ", p[i].name);
 
-		p[i].totalRate = p[i].rate;
+		p[i].totalRate = p[i].rate * p[i].numRate;
 
                 count++;
         }

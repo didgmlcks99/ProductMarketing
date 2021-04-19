@@ -1,5 +1,5 @@
-240.00 60000 4.0 2     apple mango
-60.00 400 4.0 2    green apple
-500.00 1500 4.5 2    orange
-650.00 4600 2.0 2  pineapple
-456.30 5767 4.5 1 lemon
+240.00 60000 4.0 2      apple mango
+60.00 400 4.0 2     green apple
+500.00 1500 4.7 3     orange
+650.00 4600 2.0 2   pineapple
+456.30 5767 4.5 1  lemon
